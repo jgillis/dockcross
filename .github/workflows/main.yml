@@ -657,6 +657,23 @@ jobs:
               cpython: "no",
               cpython_arg: "",
             }
+          - {
+              image: "windows-shared-x86-posix",
+              stockfish: "no",
+              stockfish_arg: "",
+              ninja: "no",
+              ninja_arg: "",
+              openssl: "no",
+              openssl_arg: "mingw no-asm",
+              C: "no",
+              C_arg: "",
+              C-Plus-Plus: "no",
+              C-Plus-Plus_arg: "",
+              fmt: "no",
+              fmt_arg: "",
+              cpython: "no",
+              cpython_arg: "",
+            }
           # Windows arm images
           - {
               image: "windows-armv7",

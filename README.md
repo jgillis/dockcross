@@ -110,6 +110,7 @@ The dockcross script will execute the given command-line inside the container, a
 | dockcross/web-wasm | Wasm | LLVM | Web (JS) |
 | dockcross/web-wasi | Wasm | LLVM | Web (Universal) |
 | dockcross/windows-shared-x86 | x86 | GCC | Windows |
+| dockcross/windows-shared-x86-posix | x86 | GCC | Windows |
 | dockcross/windows-shared-x64 | x86_64 | GCC | Windows |
 | dockcross/windows-shared-x64-posix | x86_64 | GCC | Windows |
 | dockcross/windows-static-x86 | x86 | GCC | Windows |
@@ -380,6 +381,12 @@ linking.
 ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/dockcross/windows-shared-x86/latest) ![Docker Pulls](https://img.shields.io/docker/pulls/dockcross/windows-shared-x86)
 
 32-bit Windows cross-compiler based on [MXE/MinGW-w64](https://mxe.cc/) with win32 threads and dynamic linking.
+
+### dockcross/windows-shared-x86-posix
+
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/dockcross/windows-shared-x86-posix/latest) ![Docker Pulls](https://img.shields.io/docker/pulls/dockcross/windows-shared-x86-posix)
+
+32-bit Windows cross-compiler based on [MXE/MinGW-w64](https://mxe.cc/) with posix threads and dynamic linking.
 
 ### dockcross/windows-armv7
 
