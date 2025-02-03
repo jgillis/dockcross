@@ -10,4 +10,10 @@ ARG MXE_TARGET_LINK=shared
 
 #include "common.windows"
 
+ENV CARGO_BUILD_TARGET x86_64-pc-windows-gnu
+ENV CARGO_BUILD_TARGET_UP X86_64_PC_WINDOWS_GNU
+ENV CARGO_TARGET_${CARGO_BUILD_TARGET_UP}_LINKER=${CC}
+ENV CARGO_TARGET_${CARGO_BUILD_TARGET_UP}_RUSTFLAGS="-C prefer-dynamic"
+RUN rustup target add ${CARGO_BUILD_TARGET}
+
 #include "common.label-and-env"
