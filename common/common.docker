@@ -28,6 +28,7 @@ COPY \
   imagefiles/install-cmake-binary.sh \
   imagefiles/install-liquidprompt-binary.sh \
   imagefiles/install-python-packages.sh \
+  imagefiles/install-rust.sh \
   imagefiles/utils.sh \
   /buildscripts/
 
@@ -41,6 +42,7 @@ RUN \
   /buildscripts/install-liquidprompt-binary.sh && \
   PYTHON=$([ -e /opt/python/cp38-cp38/bin/python ] && echo "/opt/python/cp38-cp38/bin/python" || echo "python3") && \
   /buildscripts/install-python-packages.sh -python ${PYTHON} && \
+  /buildscripts/install-rust.sh && \
   /buildscripts/build-and-install-ninja.sh -python ${PYTHON} && \
   /buildscripts/build-and-install-flatcc.sh && \
   rm -rf /buildscripts
@@ -48,6 +50,8 @@ RUN \
 RUN echo "root:root" | chpasswd
 WORKDIR /work
 ENTRYPOINT ["/dockcross/entrypoint.sh"]
+
+ENV PATH ${PATH}:/usr/src/mxe/usr/bin
 
 # Runtime scripts
 COPY imagefiles/cmake.sh /usr/local/bin/cmake

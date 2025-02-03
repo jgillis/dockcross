@@ -16,4 +16,10 @@ RUN \
   mingw-w64-tools \
   binutils-mingw-w64-x86-64
 
+ENV CARGO_BUILD_TARGET x86_64-pc-windows-gnu
+ENV CARGO_TARGET_${CARGO_BUILD_TARGET}_LINKER=${CC}
+ENV CARGO_TARGET_${CARGO_BUILD_TARGET}_RUSTFLAGS="-C prefer-dynamic"
+RUN rustup target add ${CARGO_BUILD_TARGET}
+
+
 #include "common.label-and-env"

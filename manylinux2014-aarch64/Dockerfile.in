@@ -73,3 +73,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-url=$VCS_URL \
       org.label-schema.schema-version="1.0"
 ENV DEFAULT_DOCKCROSS_IMAGE ${IMAGE}:${VERSION}
+
+ENV CARGO_BUILD_TARGET aarch64-unknown-linux-gnu
+RUN rustup target add ${CARGO_BUILD_TARGET}
+COPY manylinux2014-aarch64/config.toml /opt/rust/.cargo/config.toml

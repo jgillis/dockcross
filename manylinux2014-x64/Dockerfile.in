@@ -31,4 +31,8 @@ COPY linux-x64/${CROSS_TRIPLE}-noop.sh /usr/bin/${CROSS_TRIPLE}-noop
 COPY manylinux2014-x64/Toolchain.cmake ${CROSS_ROOT}/../lib/
 ENV CMAKE_TOOLCHAIN_FILE ${CROSS_ROOT}/../lib/Toolchain.cmake
 
+ENV CARGO_BUILD_TARGET x86_64-unknown-linux-gnu
+RUN rustup target add ${CARGO_BUILD_TARGET}
+COPY manylinux2014-x64/config.toml /opt/rust/.cargo/config.toml
+
 #include "common.label-and-env"
