@@ -22,4 +22,6 @@ ENV CARGO_TARGET_${CARGO_BUILD_TARGET}_RUSTFLAGS="-C prefer-dynamic"
 RUN rustup target add ${CARGO_BUILD_TARGET}
 
 
+ENV DLLTOOL /usr/x86_64-w64-mingw32/bin/dlltool
+
 #include "common.label-and-env"
