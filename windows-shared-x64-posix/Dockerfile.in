@@ -10,4 +10,10 @@ ARG MXE_TARGET_LINK=shared
 
 #include "common.windows"
 
+RUN \
+  apt-get update && \
+  apt-get install --no-install-recommends --yes \
+  mingw-w64-tools \
+  binutils-mingw-w64-x86-64
+
 #include "common.label-and-env"
